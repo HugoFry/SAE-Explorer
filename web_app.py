@@ -129,7 +129,12 @@ def set_dropdown_index():
 # Define a function to render the home page
 def home_page():
     st.markdown("<h1 style='text-align: center;'>Home Page</h1>", unsafe_allow_html=True)
-    st.header('Welcome to the App!')
+    st.header('Welcome To SAE Explorer!')
+    st.write("Introductory paragraph goes here.")
+    st.subheader("Neuron Navigator")
+    st.write("Text about neuron navigator.")
+    st.subheader("Guess The Input Image!")
+    st.write("text about the guessing game.")
 
 # Define a function to render Subpage 1
 def navigator():
