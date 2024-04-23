@@ -130,11 +130,12 @@ def set_dropdown_index():
 def home_page():
     st.markdown("<h1 style='text-align: center;'>Home Page</h1>", unsafe_allow_html=True)
     st.header('Welcome To SAE Explorer!')
-    st.write("Introductory paragraph goes here.")
+    st.write("This interactive web app enables users to explore visual features learnt by a Sparse AutoEncoder (SAE) trained on a multimodal modal. I have created an accompanying blog post that contains the technical details of the SAE and the model it was trained on, along with some further analysis. This app is intended to allow non-technical users to find fun features and play around with the SAE. I recommend spending a few minutes looking through some features on the 'neuron navigator' first to get a feel for SAE features before having a go at the game. I find it useful to identify intersting SAE features in the game, and then switch back to the neuron navigator and look them up (search with the feature index). Please reach out to me at hugo.fry@fryfamily.co.uk if you have any specific questions or want me to add something to the website!")
     st.subheader("Neuron Navigator")
-    st.write("Text about neuron navigator.")
+    st.write("The 'neuron navigator' page contains a list of all the SAE features, and displays the highest activating images of that feature along with some technical details. You can select a neuron from the drop down list or search for a neuron by typing the neuron index into the dropdown list. I have included a filter that removes all features that align with an ImageNet class (features whos highest activating images contain only 1 ImageNet label). In the future I am hoping to include custom filters for the user to search the SAE features. Please reach out if that is somehting you'd like!")
     st.subheader("Guess The Input Image!")
-    st.write("text about the guessing game.")
+    st.write("The 'guess the input image' page is a game that allows users to guess the input image using only the SAE features that fire on that input. I recommend looking up interesting SAE features by finding the index from the activation plot, and then searching them in the neuron navigator.")
+    
 
 # Define a function to render Subpage 1
 def navigator():
@@ -246,3 +247,33 @@ if st.session_state.page == "game" and "game_image_indices" not in st.session_st
     
 # Render the current page
 pages[st.session_state.page]()
+
+# Add a footer
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: none;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: transparent;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Made by Hugo Fry with the help of the <a href="https://www.matsprogram.org/" target="_blank">Machine Learning Alignment and Theory Scholars program</a>.</p>
+</div>
+"""
+st.markdown(footer, unsafe_allow_html=True)
