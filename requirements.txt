@@ -1,0 +1,4 @@
+plotly==5.18.0
+plotly-express==0.4.1
+streamlit==1.31.1
+git+https://github.com/callummcdougall/eindex.git
